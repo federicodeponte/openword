@@ -2,9 +2,13 @@
 
 > Generate professional business documents using AI and natural language prompts.
 
+<p align="center">
+  <img src="assets/demo.gif" width="700" alt="openword demo" />
+</p>
+
 **openword** is an open-source document generation toolkit designed for use with AI assistants (ChatGPT, Claude, etc.). Create invoices, contracts, business letters, and more by simply describing what you need.
 
-## Examples
+## Example Output
 
 <p align="center">
   <img src="assets/preview-rechnung.png" width="400" alt="Invoice Example" />
