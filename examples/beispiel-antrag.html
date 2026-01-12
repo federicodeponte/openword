@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 11pt;
+            --color-text: #1a1a1a;
+            --color-muted: #444;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm 2.5cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .header-right {
+            text-align: right;
+            margin-bottom: 1.2cm;
+        }
+
+        .logo {
+            width: 160px;
+            margin-bottom: 0.3cm;
+        }
+
+        .sender {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .recipient {
+            margin-bottom: 1.2cm;
+            line-height: 1.4;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 0.8cm;
+        }
+
+        .subject {
+            font-weight: bold;
+            margin-bottom: 0.6cm;
+        }
+
+        p {
+            margin: 0 0 0.4cm 0;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 0.6cm;
+            margin-bottom: 0.3cm;
+        }
+
+        .signature {
+            margin-top: 0.8cm;
+        }
+
+        .signature-names {
+            margin-top: 1.2cm;
+        }
+
+        .signature-line {
+            border-top: 1px solid var(--color-text);
+            width: 280px;
+            margin-top: 1.5cm;
+            padding-top: 0.2cm;
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        h1 {
+            font-size: 14pt;
+            margin-top: 0;
+            margin-bottom: 0.6cm;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.6cm 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        .footer-note {
+            margin-top: 1.2cm;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="header-right">
+        <img src="../assets/example-logo.png" class="logo" alt="Muster GmbH"><br>
+        <div class="sender">
+            Muster GmbH · Beispielstraße 42 · 10115 Berlin
+        </div>
+    </div>
+
+    <div class="recipient">
+        Förderbank Berlin-Brandenburg<br>
+        Abteilung Innovationsförderung<br>
+        z. Hd. Projektbetreuung<br>
+        Musterallee 100<br>
+        10117 Berlin
+    </div>
+
+    <div class="date">Berlin, 15. Januar 2026</div>
+
+    <div class="subject">Antrag auf Projektverlängerung</div>
+
+    <p>Sehr geehrte Damen und Herren,</p>
+
+    <p>hiermit beantragen wir die Verlängerung unseres im Programm <strong>Innovationsförderung Berlin</strong> geförderten Projektes „Muster-Projekt zur Digitalisierung" um drei Monate bis zum 30. Juni 2026.</p>
+
+    <p>Der Projektumfang und die bewilligten Mittel bleiben unverändert. Die Verlängerung ist erforderlich, da sich die Integration der Schnittstellen zu externen Partnersystemen als aufwändiger erwiesen hat als ursprünglich geplant.</p>
+
+    <p class="section-title">Begründung</p>
+
+    <p>Im bisherigen Projektverlauf konnten wir alle technischen Meilensteine planmäßig erreichen. Bei der Anbindung an die Systeme unserer Kooperationspartner sind jedoch unvorhergesehene Kompatibilitätsprobleme aufgetreten, die zusätzliche Entwicklungszeit erfordern.</p>
+
+    <p>Die zusätzliche Zeit ermöglicht uns, die Qualität der Lösung sicherzustellen und einen reibungslosen Übergang in den Produktivbetrieb zu gewährleisten. Alle weiteren Projektziele bleiben unverändert bestehen.</p>
+
+    <p>Vielen Dank für die Prüfung unseres Antrags. Für Rückfragen stehen wir jederzeit gerne zur Verfügung.</p>
+
+    <p>Mit freundlichen Grüßen</p>
+
+    <div class="signature">
+        <div class="signature-names">
+            <strong>Max Mustermann</strong><br>
+            Geschäftsführung, Muster GmbH
+        </div>
+        <div class="signature-line">rechtsverbindliche Unterschrift</div>
+    </div>
+
+    <h1 class="page-break">Anlage: Angepasster Zeitplan</h1>
+
+    <p><strong>Datum:</strong> 15. Januar 2026</p>
+
+    <p><strong>Gegenüberstellung Zeitplanung</strong></p>
+
+    <table>
+        <tr>
+            <th>Phase</th>
+            <th>Ursprünglich</th>
+            <th>Neu</th>
+        </tr>
+        <tr>
+            <td>Entwicklung Kernmodul</td>
+            <td>Jan – März 2025 ✓</td>
+            <td>Abgeschlossen</td>
+        </tr>
+        <tr>
+            <td>Partnerschnittstellen</td>
+            <td>April – Juni 2025</td>
+            <td>April – Sept 2025</td>
+        </tr>
+        <tr>
+            <td>Testphase</td>
+            <td>Juli – Sept 2025</td>
+            <td>Okt – Dez 2025</td>
+        </tr>
+        <tr>
+            <td>Go-Live</td>
+            <td>31. März 2026</td>
+            <td>30. Juni 2026</td>
+        </tr>
+    </table>
+
+    <p class="footer-note">Muster GmbH · Januar 2026</p>
+
+</body>
+</html>
