@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 11pt;
+            --color-text: #1a1a1a;
+            --color-muted: #444;
+            --page-margin: 2cm 2.5cm;
+        }
+
+        @page {
+            size: A4;
+            margin: var(--page-margin);
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .header-right {
+            text-align: right;
+            margin-bottom: 1.2cm;
+        }
+
+        .logo {
+            width: 180px;
+            margin-bottom: 0.3cm;
+        }
+
+        .sender {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .recipient {
+            margin-bottom: 1.2cm;
+            line-height: 1.4;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 0.8cm;
+        }
+
+        .subject {
+            font-weight: bold;
+            margin-bottom: 0.6cm;
+        }
+
+        p {
+            margin: 0 0 0.4cm 0;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 0.6cm;
+            margin-bottom: 0.3cm;
+        }
+
+        .signature {
+            margin-top: 0.8cm;
+        }
+
+        .signature-names {
+            margin-top: 1.2cm;
+        }
+
+        .signature-line {
+            border-top: 1px solid var(--color-text);
+            width: 280px;
+            margin-top: 1.5cm;
+            padding-top: 0.2cm;
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        h1 {
+            font-size: 14pt;
+            margin-top: 0;
+            margin-bottom: 0.6cm;
+        }
+
+        h2 {
+            font-size: 12pt;
+            margin-top: 0.8cm;
+            margin-bottom: 0.4cm;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.6cm 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        ul, ol {
+            margin: 0.3cm 0;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.15cm;
+        }
+
+        .footer-note {
+            margin-top: 1.2cm;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER: Logo and sender info -->
+    <div class="header-right">
+        <img src="../assets/logo.png" class="logo" alt="Logo"><br>
+        <div class="sender">
+            {{COMPANY_NAME}} · {{STREET}} · {{POSTAL_CODE}} {{CITY}}
+        </div>
+    </div>
+
+    <!-- RECIPIENT -->
+    <div class="recipient">
+        {{RECIPIENT_ORG}}<br>
+        {{RECIPIENT_DEPT}}<br>
+        {{RECIPIENT_ATTN}}<br>
+        {{RECIPIENT_STREET}}<br>
+        {{RECIPIENT_POSTAL}} {{RECIPIENT_CITY}}
+    </div>
+
+    <!-- DATE -->
+    <div class="date">{{CITY}}, {{DATE}}</div>
+
+    <!-- SUBJECT -->
+    <div class="subject">{{SUBJECT}}</div>
+
+    <!-- SALUTATION -->
+    <p>Sehr geehrte Damen und Herren,</p>
+
+    <!-- BODY CONTENT -->
+    <p>{{CONTENT}}</p>
+
+    <!-- CLOSING -->
+    <p>Mit freundlichen Grüßen</p>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+        <div class="signature-names">
+            <strong>{{SIGNER_NAME}}</strong><br>
+            {{SIGNER_TITLE}}, {{COMPANY_NAME}}
+        </div>
+        <div class="signature-line">rechtsverbindliche Unterschrift</div>
+    </div>
+
+</body>
+</html>

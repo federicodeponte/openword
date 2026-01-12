@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 11pt;
+            --color-text: #1a1a1a;
+            --color-muted: #444;
+            --page-margin: 1in 1.25in;
+        }
+
+        @page {
+            size: letter;
+            margin: var(--page-margin);
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .header-right {
+            text-align: right;
+            margin-bottom: 1in;
+        }
+
+        .logo {
+            width: 180px;
+            margin-bottom: 0.15in;
+        }
+
+        .sender {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .recipient {
+            margin-bottom: 0.5in;
+            line-height: 1.4;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 0.4in;
+        }
+
+        .reference {
+            margin-bottom: 0.3in;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+
+        .subject {
+            font-weight: bold;
+            margin-bottom: 0.3in;
+        }
+
+        p {
+            margin: 0 0 0.2in 0;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 0.3in;
+            margin-bottom: 0.15in;
+        }
+
+        .signature {
+            margin-top: 0.4in;
+        }
+
+        .signature-names {
+            margin-top: 0.6in;
+        }
+
+        .signature-line {
+            border-top: 1px solid var(--color-text);
+            width: 250px;
+            margin-top: 0.8in;
+            padding-top: 0.1in;
+            font-size: 9pt;
+            font-style: italic;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        h1 {
+            font-size: 14pt;
+            margin-top: 0;
+            margin-bottom: 0.3in;
+        }
+
+        h2 {
+            font-size: 12pt;
+            margin-top: 0.4in;
+            margin-bottom: 0.2in;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.3in 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        ul, ol {
+            margin: 0.15in 0;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.08in;
+        }
+
+        .footer-note {
+            margin-top: 0.6in;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER: Logo and sender info -->
+    <div class="header-right">
+        <img src="../assets/logo.png" class="logo" alt="Logo"><br>
+        <div class="sender">
+            {{COMPANY_NAME}}<br>
+            {{STREET}}<br>
+            {{CITY}}, {{STATE}} {{POSTAL_CODE}}
+        </div>
+    </div>
+
+    <!-- RECIPIENT -->
+    <div class="recipient">
+        {{RECIPIENT_NAME}}<br>
+        {{RECIPIENT_ORG}}<br>
+        {{RECIPIENT_STREET}}<br>
+        {{RECIPIENT_CITY}}, {{RECIPIENT_STATE}} {{RECIPIENT_POSTAL}}
+    </div>
+
+    <!-- DATE -->
+    <div class="date">{{DATE}}</div>
+
+    <!-- REFERENCE (optional) -->
+    <div class="reference">Re: {{REFERENCE}}</div>
+
+    <!-- SALUTATION -->
+    <p>Dear {{SALUTATION}},</p>
+
+    <!-- BODY CONTENT -->
+    <p>{{CONTENT}}</p>
+
+    <!-- CLOSING -->
+    <p>Sincerely,</p>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+        <div class="signature-names">
+            <strong>{{SIGNER_NAME}}</strong><br>
+            {{SIGNER_TITLE}}
+        </div>
+        <div class="signature-line">Authorized Signature</div>
+    </div>
+
+</body>
+</html>
