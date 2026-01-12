@@ -1,119 +1,144 @@
 # openletter
 
-Generate professional business documents using AI prompting. Swap logos, content, and styling with simple instructions.
+> Generate professional business documents using AI and natural language prompts.
 
-## Features
+**openletter** is an open-source document generation toolkit designed for use with AI assistants (ChatGPT, Claude, etc.). Create invoices, contracts, business letters, and more by simply describing what you need.
 
-- **Template-based**: Clean HTML templates for professional documents
-- **AI-friendly**: System prompts optimized for LLMs to generate and modify documents
-- **Easy customization**: Change logo, sender, recipient, content via prompts
-- **PDF export**: Uses weasyprint for high-quality PDF generation
-- **Multi-language**: German and English templates included
+## Why openletter?
 
-## Quick Start
+- **AI-Native**: Templates optimized for LLM prompting and document generation
+- **No Design Skills Needed**: Professional layouts out of the box
+- **Fully Customizable**: Swap logos, colors, content with simple instructions
+- **High-Quality PDF Export**: Production-ready documents via weasyprint
+- **German & English**: Localized templates for DACH region and international use
+- **Open Source**: MIT licensed, fork and modify freely
 
-```bash
-# Install dependencies
-brew install weasyprint imagemagick
+## Use Cases
 
-# Generate PDF from template
-./scripts/generate.sh templates/letter-de.html output.pdf
-
-# Or use with AI assistant
-# "Create an invoice using the openletter template with my company logo"
-```
+- **Freelancers**: Generate invoices, quotes, and contracts
+- **Startups**: Professional correspondence without design overhead
+- **Developers**: Automate document generation in workflows
+- **Anyone**: Cancel subscriptions, write complaints, request references
 
 ## Templates
 
-| Template | Description | File |
-|----------|-------------|------|
-| **Brief (DE)** | German business letter | `letter-de.html` |
-| **Letter (EN)** | English business letter | `letter-en.html` |
-| **Rechnung** | Invoice with line items | `rechnung-de.html` |
-| **Angebot** | Quote/Proposal | `angebot-de.html` |
-| **Mahnung** | Payment reminder | `mahnung-de.html` |
-| **Kündigung** | Cancellation letter | `kuendigung-de.html` |
-| **Vertrag** | Contract template | `vertrag-de.html` |
-| **Bewerbung** | Cover letter | `bewerbung-de.html` |
-| **Zeugnis** | Work reference | `zeugnis-de.html` |
-| **Beschwerde** | Complaint letter | `beschwerde-de.html` |
+| Template | German | Description |
+|----------|--------|-------------|
+| Business Letter | `letter-de.html` | Standard DIN 5008 business letter |
+| Invoice | `rechnung-de.html` | Invoice with line items, VAT, payment info |
+| Quote/Proposal | `angebot-de.html` | Project quotes with pricing tables |
+| Payment Reminder | `mahnung-de.html` | Dunning letter with fee calculation |
+| Cancellation | `kuendigung-de.html` | Contract/subscription cancellation |
+| Contract | `vertrag-de.html` | Service agreement template |
+| Cover Letter | `bewerbung-de.html` | Job application cover letter |
+| Work Reference | `zeugnis-de.html` | German Arbeitszeugnis |
+| Complaint | `beschwerde-de.html` | Formal complaint letter |
+| Letter (EN) | `letter-en.html` | English business letter |
 
-## Structure
+## Quick Start
+
+### Installation
+
+```bash
+# macOS
+brew install weasyprint imagemagick
+
+# Ubuntu/Debian
+apt install weasyprint imagemagick
+
+# Windows (via pip)
+pip install weasyprint
+```
+
+### Generate a PDF
+
+```bash
+# Clone the repo
+git clone https://github.com/federicodeponte/openletter.git
+cd openletter
+
+# Generate PDF from any template
+weasyprint templates/rechnung-de.html invoice.pdf
+```
+
+### Use with AI Assistant
+
+1. Open your AI assistant (ChatGPT, Claude, etc.)
+2. Share the system prompt from `prompts/system.md`
+3. Ask naturally:
+
+```
+Create an invoice for my consulting work:
+- My company: Acme GmbH, Hauptstraße 1, 10115 Berlin
+- Client: TechCorp AG, Innovationsweg 5, 80331 München
+- 16 hours consulting at €150/hour
+- Logo from acme.de
+```
+
+The AI will generate the HTML and export a professional PDF.
+
+## Example Prompts
+
+### Invoice
+> "Create an invoice from Muster GmbH to Max Kunde for 3 items: 8h consulting at €120, 24h development at €95, 4h documentation at €85"
+
+### Cancellation
+> "Write a cancellation letter for my gym membership at FitLife GmbH, contract number FL-2023-45678"
+
+### Work Reference
+> "Generate an Arbeitszeugnis for Julia Schmidt who worked as Senior Developer from April 2022 to December 2025, excellent performance"
+
+### Quote
+> "Create a project quote for website redesign: €3500 design, 40h frontend at €95/h, 24h CMS integration at €95/h"
+
+## Project Structure
 
 ```
 openletter/
-├── templates/          # HTML document templates
-│   ├── letter-de.html
-│   ├── letter-en.html
-│   ├── rechnung-de.html
-│   ├── angebot-de.html
-│   ├── mahnung-de.html
-│   ├── kuendigung-de.html
-│   ├── vertrag-de.html
-│   ├── bewerbung-de.html
-│   ├── zeugnis-de.html
-│   └── beschwerde-de.html
-├── examples/           # Example outputs
+├── templates/          # HTML templates (10 document types)
+├── examples/           # Sample outputs with mock data
 ├── prompts/            # AI system prompts
-├── scripts/            # Build and export scripts
-└── assets/             # Logos, fonts
-```
-
-## Usage with AI
-
-1. Share the system prompt from `prompts/system.md` with your AI assistant
-2. Provide your logo URL or file
-3. Describe your document content
-4. AI generates the HTML, exports to PDF
-
-### Example Prompts
-
-```
-Create an invoice for my company using the openletter rechnung template.
-Logo from mycompany.com, customer is XYZ GmbH, 3 line items.
-```
-
-```
-Write a cancellation letter for my gym membership using the kündigung template.
-```
-
-```
-Generate a job reference (Zeugnis) for an employee who worked as a developer.
+├── scripts/            # Helper scripts (PDF generation, logo fetching)
+└── assets/             # Logos and resources
 ```
 
 ## Customization
 
-### Logo
-Replace the logo path in templates or provide via prompt:
-```html
-<img src="your-logo.png" class="logo" alt="Company">
-```
-
-Tip: Use ImageMagick to trim whitespace:
+### Replace Logo
 ```bash
-convert logo.png -trim +repage logo-trimmed.png
+# Fetch and prepare logo from website
+./scripts/fetch-logo.sh https://example.com/logo.png assets/my-logo.png
 ```
 
-### Styling
-Edit CSS variables in template `<style>` sections:
+### Modify Styling
+Edit CSS variables in any template:
 ```css
 :root {
   --font-family: 'Helvetica Neue', Arial, sans-serif;
   --font-size: 11pt;
   --color-text: #1a1a1a;
+  --color-accent: #2c3e50;
 }
 ```
 
-## Export
+## Tech Stack
 
-```bash
-# PDF via weasyprint
-weasyprint document.html document.pdf
+- **HTML/CSS**: Template format for maximum compatibility
+- **weasyprint**: PDF rendering engine
+- **ImageMagick**: Logo processing and optimization
 
-# With custom stylesheets
-weasyprint document.html document.pdf -s custom.css
-```
+## Contributing
+
+Contributions welcome! Ideas for new templates, translations, or improvements - open an issue or PR.
+
+## Keywords
+
+document generator, PDF creator, invoice template, business letter template, AI document automation, German business documents, Rechnung erstellen, Geschäftsbrief, Arbeitszeugnis, Kündigung schreiben, contract template, quote generator, LLM document generation, ChatGPT documents, Claude documents, weasyprint templates
 
 ## License
 
-MIT
+MIT License - use freely for personal and commercial projects.
+
+---
+
+Made with AI assistance. Star ⭐ if you find it useful!
