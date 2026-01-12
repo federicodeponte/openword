@@ -1,3 +1,11 @@
+# Secrets - NEVER commit
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+credentials.json
+
 # OS
 .DS_Store
 Thumbs.db
