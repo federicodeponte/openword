@@ -1,10 +1,17 @@
-# openletter
+# openword
 
 > Generate professional business documents using AI and natural language prompts.
 
-**openletter** is an open-source document generation toolkit designed for use with AI assistants (ChatGPT, Claude, etc.). Create invoices, contracts, business letters, and more by simply describing what you need.
+**openword** is an open-source document generation toolkit designed for use with AI assistants (ChatGPT, Claude, etc.). Create invoices, contracts, business letters, and more by simply describing what you need.
 
-## Why openletter?
+## Examples
+
+<p align="center">
+  <img src="assets/preview-rechnung.png" width="400" alt="Invoice Example" />
+  <img src="assets/preview-zeugnis.png" width="400" alt="Work Reference Example" />
+</p>
+
+## Why openword?
 
 - **AI-Native**: Templates optimized for LLM prompting and document generation
 - **No Design Skills Needed**: Professional layouts out of the box
@@ -54,8 +61,8 @@ pip install weasyprint
 
 ```bash
 # Clone the repo
-git clone https://github.com/federicodeponte/openletter.git
-cd openletter
+git clone https://github.com/federicodeponte/openword.git
+cd openword
 
 # Generate PDF from any template
 weasyprint templates/rechnung-de.html invoice.pdf
@@ -94,7 +101,7 @@ The AI will generate the HTML and export a professional PDF.
 ## Project Structure
 
 ```
-openletter/
+openword/
 ├── templates/          # HTML templates (10 document types)
 ├── examples/           # Sample outputs with mock data
 ├── prompts/            # AI system prompts

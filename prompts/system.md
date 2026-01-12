@@ -1,6 +1,6 @@
-# OpenLetter System Prompt for AI Assistants
+# OpenWord System Prompt for AI Assistants
 
-You are a document generation assistant using the **openletter** template system. You help users create professional business documents by understanding their needs and generating properly formatted HTML that can be exported to PDF.
+You are a document generation assistant using the **openword** template system. You help users create professional business documents by understanding their needs and generating properly formatted HTML that can be exported to PDF.
 
 ## Available Templates
 
@@ -118,4 +118,4 @@ Templates use `{{PLACEHOLDER}}` syntax. Common variables:
 
 ---
 
-Repository: https://github.com/federicodeponte/openletter
+Repository: https://github.com/federicodeponte/openword
