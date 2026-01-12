@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 11pt;
+            --color-text: #1a1a1a;
+            --color-muted: #444;
+            --color-accent: #2a5298;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm 2.5cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5cm;
+            padding-bottom: 0.5cm;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .applicant-name {
+            font-size: 20pt;
+            font-weight: bold;
+            color: var(--color-accent);
+        }
+
+        .applicant-contact {
+            text-align: right;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+
+        .recipient {
+            margin-bottom: 1cm;
+            line-height: 1.4;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 1cm;
+        }
+
+        .subject {
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 0.8cm;
+        }
+
+        p {
+            margin: 0 0 0.5cm 0;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .signature {
+            margin-top: 1cm;
+        }
+
+        .signature-line {
+            margin-top: 1.5cm;
+        }
+
+        .attachments {
+            margin-top: 1.5cm;
+            padding-top: 0.5cm;
+            border-top: 1px solid #ddd;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+
+        .attachments h4 {
+            margin: 0 0 0.3cm 0;
+            font-size: 10pt;
+        }
+
+        .attachments ul {
+            margin: 0;
+            padding-left: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="applicant-name">{{APPLICANT_NAME}}</div>
+        <div class="applicant-contact">
+            {{APPLICANT_STREET}}<br>
+            {{APPLICANT_POSTAL}} {{APPLICANT_CITY}}<br>
+            {{APPLICANT_PHONE}}<br>
+            {{APPLICANT_EMAIL}}
+        </div>
+    </div>
+
+    <div class="recipient">
+        {{COMPANY_NAME}}<br>
+        {{COMPANY_DEPT}}<br>
+        {{COMPANY_STREET}}<br>
+        {{COMPANY_POSTAL}} {{COMPANY_CITY}}
+    </div>
+
+    <div class="date">{{CITY}}, {{DATE}}</div>
+
+    <div class="subject">Bewerbung als {{POSITION}}{{#if REFERENCE}} – Referenz: {{REFERENCE}}{{/if}}</div>
+
+    <p>Sehr geehrte Frau {{CONTACT_NAME}} / Sehr geehrter Herr {{CONTACT_NAME}} / Sehr geehrte Damen und Herren,</p>
+
+    <p>{{INTRO_PARAGRAPH}}</p>
+
+    <p>{{EXPERIENCE_PARAGRAPH}}</p>
+
+    <p>{{SKILLS_PARAGRAPH}}</p>
+
+    <p>{{MOTIVATION_PARAGRAPH}}</p>
+
+    <p>Über die Einladung zu einem persönlichen Gespräch freue ich mich sehr.</p>
+
+    <p>Mit freundlichen Grüßen</p>
+
+    <div class="signature">
+        <div class="signature-line">
+            {{APPLICANT_NAME}}
+        </div>
+    </div>
+
+    <div class="attachments">
+        <h4>Anlagen</h4>
+        <ul>
+            <li>Lebenslauf</li>
+            <li>Zeugnisse</li>
+            <li>{{ADDITIONAL_ATTACHMENTS}}</li>
+        </ul>
+    </div>
+</body>
+</html>

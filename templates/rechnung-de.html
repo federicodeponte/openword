@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 10pt;
+            --color-text: #1a1a1a;
+            --color-muted: #666;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.5;
+            color: var(--color-text);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5cm;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .company-info {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .addresses {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1cm;
+        }
+
+        .recipient {
+            line-height: 1.4;
+        }
+
+        .invoice-info {
+            text-align: right;
+        }
+
+        .invoice-title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 0.5cm;
+        }
+
+        .invoice-meta {
+            font-size: 10pt;
+            margin-bottom: 0.3cm;
+        }
+
+        .invoice-meta strong {
+            display: inline-block;
+            width: 120px;
+        }
+
+        table.items {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1cm 0;
+        }
+
+        table.items th {
+            background-color: #f5f5f5;
+            border-bottom: 2px solid #333;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table.items td {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 8px;
+            vertical-align: top;
+        }
+
+        table.items .number {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .totals {
+            width: 300px;
+            margin-left: auto;
+            margin-top: 0.5cm;
+        }
+
+        .totals tr td {
+            padding: 5px 8px;
+        }
+
+        .totals .label {
+            text-align: right;
+        }
+
+        .totals .value {
+            text-align: right;
+            width: 100px;
+        }
+
+        .totals .grand-total {
+            font-weight: bold;
+            font-size: 12pt;
+            border-top: 2px solid #333;
+        }
+
+        .payment-info {
+            margin-top: 1cm;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .payment-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 11pt;
+        }
+
+        .notes {
+            margin-top: 1cm;
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 8pt;
+            color: var(--color-muted);
+            text-align: center;
+            padding: 10px 2cm;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="../assets/example-logo.png" class="logo" alt="Logo">
+        <div class="company-info">
+            {{COMPANY_NAME}}<br>
+            {{STREET}}<br>
+            {{POSTAL_CODE}} {{CITY}}<br>
+            Tel: {{PHONE}}<br>
+            {{EMAIL}}
+        </div>
+    </div>
+
+    <div class="addresses">
+        <div class="recipient">
+            {{RECIPIENT_NAME}}<br>
+            {{RECIPIENT_ORG}}<br>
+            {{RECIPIENT_STREET}}<br>
+            {{RECIPIENT_POSTAL}} {{RECIPIENT_CITY}}
+        </div>
+        <div class="invoice-info">
+            <div class="invoice-title">RECHNUNG</div>
+            <div class="invoice-meta"><strong>Rechnungsnr.:</strong> {{INVOICE_NUMBER}}</div>
+            <div class="invoice-meta"><strong>Datum:</strong> {{DATE}}</div>
+            <div class="invoice-meta"><strong>Kundennr.:</strong> {{CUSTOMER_NUMBER}}</div>
+            <div class="invoice-meta"><strong>Fällig bis:</strong> {{DUE_DATE}}</div>
+        </div>
+    </div>
+
+    <table class="items">
+        <thead>
+            <tr>
+                <th style="width: 40px;">Pos.</th>
+                <th>Beschreibung</th>
+                <th style="width: 60px;" class="number">Menge</th>
+                <th style="width: 90px;" class="number">Einzelpreis</th>
+                <th style="width: 90px;" class="number">Gesamt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>{{ITEM_1_DESC}}</td>
+                <td class="number">{{ITEM_1_QTY}}</td>
+                <td class="number">{{ITEM_1_PRICE}} €</td>
+                <td class="number">{{ITEM_1_TOTAL}} €</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>{{ITEM_2_DESC}}</td>
+                <td class="number">{{ITEM_2_QTY}}</td>
+                <td class="number">{{ITEM_2_PRICE}} €</td>
+                <td class="number">{{ITEM_2_TOTAL}} €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="totals">
+        <tr>
+            <td class="label">Zwischensumme:</td>
+            <td class="value">{{SUBTOTAL}} €</td>
+        </tr>
+        <tr>
+            <td class="label">USt. (19%):</td>
+            <td class="value">{{VAT}} €</td>
+        </tr>
+        <tr class="grand-total">
+            <td class="label">Gesamtbetrag:</td>
+            <td class="value">{{TOTAL}} €</td>
+        </tr>
+    </table>
+
+    <div class="payment-info">
+        <h3>Zahlungsinformationen</h3>
+        Bitte überweisen Sie den Betrag bis zum {{DUE_DATE}} auf folgendes Konto:<br>
+        <strong>IBAN:</strong> {{IBAN}}<br>
+        <strong>BIC:</strong> {{BIC}}<br>
+        <strong>Bank:</strong> {{BANK_NAME}}<br>
+        <strong>Verwendungszweck:</strong> {{INVOICE_NUMBER}}
+    </div>
+
+    <div class="notes">
+        {{NOTES}}
+    </div>
+
+    <div class="footer">
+        {{COMPANY_NAME}} · {{STREET}} · {{POSTAL_CODE}} {{CITY}}<br>
+        Geschäftsführer: {{CEO}} · Amtsgericht {{COURT}} · HRB {{HRB}} · USt-IdNr.: {{VAT_ID}}
+    </div>
+</body>
+</html>

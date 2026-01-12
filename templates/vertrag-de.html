@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 10pt;
+            --color-text: #1a1a1a;
+            --color-muted: #666;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm 2.5cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 1.5cm;
+            padding-bottom: 0.5cm;
+            border-bottom: 2px solid #333;
+        }
+
+        .title {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 0.3cm;
+        }
+
+        .subtitle {
+            font-size: 11pt;
+            color: var(--color-muted);
+        }
+
+        .parties {
+            margin-bottom: 1cm;
+        }
+
+        .party {
+            margin-bottom: 0.8cm;
+        }
+
+        .party-label {
+            font-weight: bold;
+            margin-bottom: 0.2cm;
+        }
+
+        .party-info {
+            padding-left: 1cm;
+        }
+
+        h2 {
+            font-size: 11pt;
+            margin-top: 0.8cm;
+            margin-bottom: 0.3cm;
+            padding-bottom: 0.2cm;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h2 .section-number {
+            display: inline-block;
+            width: 2cm;
+        }
+
+        p {
+            margin: 0 0 0.4cm 0;
+            text-align: justify;
+        }
+
+        ol {
+            margin: 0.3cm 0;
+            padding-left: 1.5em;
+        }
+
+        ol li {
+            margin-bottom: 0.3cm;
+        }
+
+        .subsection {
+            margin-left: 0.5cm;
+        }
+
+        .signature-section {
+            margin-top: 2cm;
+            page-break-inside: avoid;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5cm;
+        }
+
+        .signature-block {
+            width: 45%;
+        }
+
+        .signature-line {
+            border-top: 1px solid #333;
+            padding-top: 0.3cm;
+            margin-top: 2cm;
+        }
+
+        .signature-label {
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .place-date {
+            margin-top: 1cm;
+        }
+
+        .appendix {
+            margin-top: 1cm;
+            padding: 10px;
+            background-color: #f9f9f9;
+            font-size: 9pt;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">{{CONTRACT_TITLE}}</div>
+        <div class="subtitle">{{CONTRACT_SUBTITLE}}</div>
+    </div>
+
+    <div class="parties">
+        <p><strong>zwischen</strong></p>
+
+        <div class="party">
+            <div class="party-label">Auftraggeber:</div>
+            <div class="party-info">
+                {{CLIENT_NAME}}<br>
+                {{CLIENT_STREET}}<br>
+                {{CLIENT_POSTAL}} {{CLIENT_CITY}}<br>
+                vertreten durch: {{CLIENT_REP}}
+            </div>
+            <p style="margin-top: 0.3cm; font-style: italic;">– nachfolgend „Auftraggeber" genannt –</p>
+        </div>
+
+        <p><strong>und</strong></p>
+
+        <div class="party">
+            <div class="party-label">Auftragnehmer:</div>
+            <div class="party-info">
+                {{CONTRACTOR_NAME}}<br>
+                {{CONTRACTOR_STREET}}<br>
+                {{CONTRACTOR_POSTAL}} {{CONTRACTOR_CITY}}<br>
+                vertreten durch: {{CONTRACTOR_REP}}
+            </div>
+            <p style="margin-top: 0.3cm; font-style: italic;">– nachfolgend „Auftragnehmer" genannt –</p>
+        </div>
+    </div>
+
+    <h2><span class="section-number">§ 1</span> Vertragsgegenstand</h2>
+    <p>{{SUBJECT_DESCRIPTION}}</p>
+
+    <h2><span class="section-number">§ 2</span> Leistungsumfang</h2>
+    <p>Der Auftragnehmer erbringt folgende Leistungen:</p>
+    <ol>
+        <li>{{SERVICE_1}}</li>
+        <li>{{SERVICE_2}}</li>
+        <li>{{SERVICE_3}}</li>
+    </ol>
+
+    <h2><span class="section-number">§ 3</span> Vergütung</h2>
+    <p>Für die vereinbarten Leistungen erhält der Auftragnehmer eine Vergütung in Höhe von <strong>{{TOTAL_AMOUNT}} € {{VAT_NOTE}}</strong>.</p>
+    <p>Die Zahlung erfolgt {{PAYMENT_TERMS}}.</p>
+
+    <h2><span class="section-number">§ 4</span> Laufzeit und Kündigung</h2>
+    <p>Der Vertrag beginnt am {{START_DATE}} und endet am {{END_DATE}}.</p>
+    <p>{{TERMINATION_TERMS}}</p>
+
+    <h2><span class="section-number">§ 5</span> Geheimhaltung</h2>
+    <p>Die Vertragsparteien verpflichten sich, alle im Rahmen dieses Vertrages erlangten vertraulichen Informationen geheim zu halten und nur für die Zwecke dieses Vertrages zu verwenden.</p>
+
+    <h2><span class="section-number">§ 6</span> Haftung</h2>
+    <p>{{LIABILITY_TERMS}}</p>
+
+    <h2><span class="section-number">§ 7</span> Schlussbestimmungen</h2>
+    <p>Änderungen und Ergänzungen dieses Vertrages bedürfen der Schriftform. Dies gilt auch für die Aufhebung des Schriftformerfordernisses.</p>
+    <p>Sollten einzelne Bestimmungen dieses Vertrages unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+    <p>Es gilt deutsches Recht. Gerichtsstand ist {{JURISDICTION}}.</p>
+
+    <div class="appendix">
+        <strong>Anlagen:</strong> {{APPENDICES}}
+    </div>
+
+    <div class="signature-section">
+        <div class="place-date">
+            {{PLACE}}, den {{DATE}}
+        </div>
+
+        <div class="signature-row">
+            <div class="signature-block">
+                <div class="signature-line">
+                    <div class="signature-label">Auftraggeber<br>{{CLIENT_REP}}</div>
+                </div>
+            </div>
+            <div class="signature-block">
+                <div class="signature-line">
+                    <div class="signature-label">Auftragnehmer<br>{{CONTRACTOR_REP}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

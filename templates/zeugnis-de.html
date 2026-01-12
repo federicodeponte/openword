@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 11pt;
+            --color-text: #1a1a1a;
+            --color-muted: #666;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm 2.5cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        .header {
+            text-align: right;
+            margin-bottom: 1.5cm;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 0.3cm;
+        }
+
+        .company-info {
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .title {
+            font-size: 16pt;
+            font-weight: bold;
+            text-align: center;
+            margin: 1.5cm 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .employee-info {
+            margin-bottom: 1cm;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 0.2cm;
+        }
+
+        .info-label {
+            width: 4cm;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 0 0 0.5cm 0;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 0.8cm;
+            margin-bottom: 0.3cm;
+        }
+
+        .rating {
+            font-style: italic;
+        }
+
+        .closing {
+            margin-top: 1cm;
+        }
+
+        .signature-section {
+            margin-top: 2cm;
+        }
+
+        .place-date {
+            margin-bottom: 1.5cm;
+        }
+
+        .signature-line {
+            border-top: 1px solid #333;
+            width: 250px;
+            padding-top: 0.3cm;
+            margin-top: 2cm;
+        }
+
+        .signature-name {
+            font-weight: bold;
+        }
+
+        .signature-title {
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="../assets/example-logo.png" class="logo" alt="Logo"><br>
+        <div class="company-info">
+            {{COMPANY_NAME}}<br>
+            {{STREET}}<br>
+            {{POSTAL_CODE}} {{CITY}}
+        </div>
+    </div>
+
+    <div class="title">{{ZEUGNIS_TYPE}}</div>
+
+    <div class="employee-info">
+        <div class="info-row">
+            <span class="info-label">Name:</span>
+            <span>{{EMPLOYEE_NAME}}, geb. {{BIRTH_DATE}}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Beschäftigt als:</span>
+            <span>{{POSITION}}</span>
+        </div>
+        <div class="info-row">
+            <span class="info-label">Zeitraum:</span>
+            <span>{{START_DATE}} bis {{END_DATE}}</span>
+        </div>
+    </div>
+
+    <p>{{EMPLOYEE_TITLE}} {{EMPLOYEE_NAME}} war vom {{START_DATE}} bis zum {{END_DATE}} in unserem Unternehmen als {{POSITION}} tätig.</p>
+
+    <p class="section-title">Unternehmensbeschreibung</p>
+    <p>{{COMPANY_DESCRIPTION}}</p>
+
+    <p class="section-title">Aufgabenbereich</p>
+    <p>Zu {{EMPLOYEE_POSSESSIVE}} Aufgaben gehörten insbesondere:</p>
+    <p>{{TASKS_DESCRIPTION}}</p>
+
+    <p class="section-title">Leistungsbeurteilung</p>
+    <p>{{EMPLOYEE_TITLE}} {{EMPLOYEE_LASTNAME}} arbeitete sich schnell in {{EMPLOYEE_POSSESSIVE}} Aufgabengebiet ein und zeigte dabei großes Engagement sowie eine hohe Auffassungsgabe.</p>
+    <p>{{PERFORMANCE_DESCRIPTION}}</p>
+    <p class="rating">{{EMPLOYEE_TITLE}} {{EMPLOYEE_LASTNAME}} erfüllte die {{EMPLOYEE_POSSESSIVE_2}} übertragenen Aufgaben {{PERFORMANCE_RATING}}.</p>
+
+    <p class="section-title">Sozialverhalten</p>
+    <p>{{EMPLOYEE_POSSESSIVE_CAP}} Verhalten gegenüber Vorgesetzten, Kollegen und Kunden war {{BEHAVIOR_RATING}}.</p>
+
+    <p class="section-title">Beendigungsgrund</p>
+    <p>{{EMPLOYEE_TITLE}} {{EMPLOYEE_LASTNAME}} verlässt unser Unternehmen {{REASON}}.</p>
+
+    <div class="closing">
+        <p>Wir danken {{EMPLOYEE_TITLE_DAT}} {{EMPLOYEE_LASTNAME}} für {{EMPLOYEE_POSSESSIVE}} {{COLLABORATION_QUALITY}} Zusammenarbeit und wünschen {{EMPLOYEE_PRONOUN}} für den weiteren beruflichen und privaten Lebensweg alles Gute.</p>
+    </div>
+
+    <div class="signature-section">
+        <div class="place-date">{{CITY}}, {{DATE}}</div>
+
+        <div class="signature-line">
+            <div class="signature-name">{{SIGNER_NAME}}</div>
+            <div class="signature-title">{{SIGNER_TITLE}}</div>
+        </div>
+    </div>
+</body>
+</html>

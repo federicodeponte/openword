@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 10pt;
+            --color-text: #1a1a1a;
+            --color-muted: #666;
+            --color-warning: #c0392b;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.5;
+            color: var(--color-text);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1cm;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .company-info {
+            text-align: right;
+            font-size: 9pt;
+            color: var(--color-muted);
+        }
+
+        .sender-line {
+            font-size: 8pt;
+            color: var(--color-muted);
+            border-bottom: 1px solid var(--color-muted);
+            padding-bottom: 2px;
+            margin-bottom: 0.5cm;
+        }
+
+        .recipient {
+            margin-bottom: 1cm;
+            line-height: 1.4;
+        }
+
+        .reminder-level {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--color-warning);
+            color: white;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-bottom: 0.5cm;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 0.8cm;
+        }
+
+        .subject {
+            font-weight: bold;
+            margin-bottom: 0.5cm;
+        }
+
+        .reference {
+            font-size: 9pt;
+            color: var(--color-muted);
+            margin-bottom: 0.5cm;
+        }
+
+        p {
+            margin: 0 0 0.4cm 0;
+            text-align: justify;
+        }
+
+        table.invoice-details {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.8cm 0;
+        }
+
+        table.invoice-details th {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table.invoice-details td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .amount {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .total-due {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--color-warning);
+            margin: 0.5cm 0;
+            padding: 10px;
+            background-color: #fdf2f2;
+            border: 1px solid var(--color-warning);
+        }
+
+        .payment-info {
+            margin-top: 0.8cm;
+            padding: 12px;
+            background-color: #f9f9f9;
+            font-size: 9pt;
+        }
+
+        .deadline {
+            font-weight: bold;
+            color: var(--color-warning);
+        }
+
+        .signature {
+            margin-top: 1cm;
+        }
+
+        .footer {
+            margin-top: 1.5cm;
+            font-size: 8pt;
+            color: var(--color-muted);
+            text-align: center;
+            padding-top: 0.5cm;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="../assets/example-logo.png" class="logo" alt="Logo">
+        <div class="company-info">
+            {{COMPANY_NAME}}<br>
+            {{STREET}}<br>
+            {{POSTAL_CODE}} {{CITY}}
+        </div>
+    </div>
+
+    <div class="sender-line">
+        {{COMPANY_NAME}} · {{STREET}} · {{POSTAL_CODE}} {{CITY}}
+    </div>
+
+    <div class="recipient">
+        {{RECIPIENT_NAME}}<br>
+        {{RECIPIENT_ORG}}<br>
+        {{RECIPIENT_STREET}}<br>
+        {{RECIPIENT_POSTAL}} {{RECIPIENT_CITY}}
+    </div>
+
+    <div class="date">{{CITY}}, {{DATE}}</div>
+
+    <div class="reminder-level">{{REMINDER_LEVEL}}. MAHNUNG</div>
+
+    <div class="reference">
+        Kundennummer: {{CUSTOMER_NUMBER}}<br>
+        Rechnungsnummer: {{INVOICE_NUMBER}}<br>
+        Rechnungsdatum: {{INVOICE_DATE}}
+    </div>
+
+    <div class="subject">Zahlungserinnerung – Offener Betrag: {{TOTAL_DUE}} €</div>
+
+    <p>Sehr geehrte Damen und Herren,</p>
+
+    <p>trotz Fälligkeit am {{ORIGINAL_DUE_DATE}} konnten wir leider noch keinen Zahlungseingang für die unten aufgeführte Rechnung feststellen.</p>
+
+    <table class="invoice-details">
+        <tr>
+            <th>Rechnungsnr.</th>
+            <th>Rechnungsdatum</th>
+            <th>Urspr. Betrag</th>
+            <th>Mahngebühr</th>
+            <th>Offener Betrag</th>
+        </tr>
+        <tr>
+            <td>{{INVOICE_NUMBER}}</td>
+            <td>{{INVOICE_DATE}}</td>
+            <td class="amount">{{ORIGINAL_AMOUNT}} €</td>
+            <td class="amount">{{REMINDER_FEE}} €</td>
+            <td class="amount">{{TOTAL_DUE}} €</td>
+        </tr>
+    </table>
+
+    <div class="total-due">
+        Gesamtbetrag fällig: {{TOTAL_DUE}} €
+    </div>
+
+    <p>Wir bitten Sie, den ausstehenden Betrag bis spätestens <span class="deadline">{{NEW_DUE_DATE}}</span> auf unser Konto zu überweisen.</p>
+
+    <div class="payment-info">
+        <strong>Bankverbindung:</strong><br>
+        IBAN: {{IBAN}} · BIC: {{BIC}}<br>
+        Verwendungszweck: {{INVOICE_NUMBER}}
+    </div>
+
+    <p>Sollte sich Ihre Zahlung mit diesem Schreiben überschnitten haben, betrachten Sie diese Mahnung bitte als gegenstandslos.</p>
+
+    <p>Mit freundlichen Grüßen</p>
+
+    <div class="signature">
+        {{SIGNER_NAME}}<br>
+        <span style="font-size: 9pt; color: var(--color-muted);">Buchhaltung</span>
+    </div>
+
+    <div class="footer">
+        {{COMPANY_NAME}} · Geschäftsführer: {{CEO}} · Amtsgericht {{COURT}} HRB {{HRB}} · USt-IdNr.: {{VAT_ID}}
+    </div>
+</body>
+</html>

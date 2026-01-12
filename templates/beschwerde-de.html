@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 11pt;
+            --color-text: #1a1a1a;
+            --color-muted: #444;
+        }
+
+        @page {
+            size: A4;
+            margin: 2cm 2.5cm;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size);
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .sender {
+            margin-bottom: 1cm;
+        }
+
+        .sender-line {
+            font-size: 8pt;
+            color: var(--color-muted);
+            border-bottom: 1px solid var(--color-muted);
+            padding-bottom: 2px;
+            margin-bottom: 0.5cm;
+        }
+
+        .recipient {
+            margin-bottom: 1cm;
+            line-height: 1.4;
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 0.8cm;
+        }
+
+        .reference {
+            font-size: 10pt;
+            color: var(--color-muted);
+            margin-bottom: 0.5cm;
+        }
+
+        .subject {
+            font-weight: bold;
+            margin-bottom: 0.6cm;
+        }
+
+        p {
+            margin: 0 0 0.5cm 0;
+            text-align: justify;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 0.6cm;
+            margin-bottom: 0.3cm;
+        }
+
+        ul {
+            margin: 0.3cm 0;
+            padding-left: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.2cm;
+        }
+
+        .demand {
+            margin: 0.8cm 0;
+            padding: 12px 15px;
+            background-color: #f5f5f5;
+            border-left: 3px solid #333;
+        }
+
+        .deadline {
+            font-weight: bold;
+        }
+
+        .signature {
+            margin-top: 1cm;
+        }
+
+        .signature-line {
+            border-top: 1px solid var(--color-text);
+            width: 250px;
+            margin-top: 1.5cm;
+            padding-top: 0.2cm;
+        }
+
+        .attachments {
+            margin-top: 1.5cm;
+            padding-top: 0.5cm;
+            border-top: 1px solid #ddd;
+            font-size: 10pt;
+            color: var(--color-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="sender">
+        {{SENDER_NAME}}<br>
+        {{SENDER_STREET}}<br>
+        {{SENDER_POSTAL}} {{SENDER_CITY}}<br>
+        Tel: {{SENDER_PHONE}}<br>
+        E-Mail: {{SENDER_EMAIL}}
+    </div>
+
+    <div class="sender-line">
+        {{SENDER_NAME}} · {{SENDER_STREET}} · {{SENDER_POSTAL}} {{SENDER_CITY}}
+    </div>
+
+    <div class="recipient">
+        {{RECIPIENT_ORG}}<br>
+        {{RECIPIENT_DEPT}}<br>
+        {{RECIPIENT_STREET}}<br>
+        {{RECIPIENT_POSTAL}} {{RECIPIENT_CITY}}
+    </div>
+
+    <div class="date">{{CITY}}, {{DATE}}</div>
+
+    <div class="reference">
+        {{REFERENCE_TYPE}}: {{REFERENCE_NUMBER}}<br>
+        Datum des Vorfalls: {{INCIDENT_DATE}}
+    </div>
+
+    <div class="subject">Beschwerde: {{COMPLAINT_SUBJECT}}</div>
+
+    <p>Sehr geehrte Damen und Herren,</p>
+
+    <p>hiermit möchte ich mich über folgenden Sachverhalt beschweren:</p>
+
+    <p class="section-title">Sachverhalt</p>
+    <p>{{INCIDENT_DESCRIPTION}}</p>
+
+    <p class="section-title">Bisherige Maßnahmen</p>
+    <p>{{PREVIOUS_ACTIONS}}</p>
+
+    <p class="section-title">Auswirkungen</p>
+    <p>{{IMPACT_DESCRIPTION}}</p>
+
+    <div class="demand">
+        <p class="section-title" style="margin-top: 0;">Meine Forderung</p>
+        <p>{{DEMAND_DESCRIPTION}}</p>
+        <p>Ich setze Ihnen hierfür eine Frist bis zum <span class="deadline">{{DEADLINE}}</span>.</p>
+    </div>
+
+    <p>Sollte ich bis zum genannten Datum keine zufriedenstellende Reaktion erhalten, behalte ich mir weitere rechtliche Schritte vor.</p>
+
+    <p>Ich erwarte Ihre schriftliche Stellungnahme.</p>
+
+    <p>Mit freundlichen Grüßen</p>
+
+    <div class="signature">
+        <div class="signature-line">
+            {{SENDER_NAME}}
+        </div>
+    </div>
+
+    <div class="attachments">
+        <strong>Anlagen:</strong>
+        <ul>
+            <li>{{ATTACHMENT_1}}</li>
+            <li>{{ATTACHMENT_2}}</li>
+        </ul>
+    </div>
+</body>
+</html>
