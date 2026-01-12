@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 2cm; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10pt; line-height: 1.5; color: #1a1a1a; }
+        .header { display: flex; justify-content: space-between; margin-bottom: 1cm; }
+        .logo { font-size: 24pt; font-weight: bold; }
+        .company-info { text-align: right; font-size: 9pt; color: #666; }
+        .sender-line { font-size: 8pt; color: #666; border-bottom: 1px solid #666; padding-bottom: 2px; margin-bottom: 0.5cm; }
+        .recipient { margin-bottom: 1cm; }
+        .reminder-level { display: inline-block; padding: 5px 15px; background-color: #c0392b; color: white; font-weight: bold; font-size: 12pt; margin-bottom: 0.5cm; }
+        .date { text-align: right; margin-bottom: 0.8cm; }
+        .subject { font-weight: bold; margin-bottom: 0.5cm; }
+        .reference { font-size: 9pt; color: #666; margin-bottom: 0.5cm; }
+        p { margin: 0 0 0.4cm 0; }
+        table.invoice-details { width: 100%; border-collapse: collapse; margin: 0.8cm 0; }
+        table.invoice-details th { background-color: #f5f5f5; border: 1px solid #ddd; padding: 8px; text-align: left; }
+        table.invoice-details td { border: 1px solid #ddd; padding: 8px; }
+        .amount { text-align: right; font-weight: bold; }
+        .total-due { font-size: 12pt; font-weight: bold; color: #c0392b; margin: 0.5cm 0; padding: 10px; background-color: #fdf2f2; border: 1px solid #c0392b; }
+        .payment-info { margin-top: 0.8cm; padding: 12px; background-color: #f9f9f9; font-size: 9pt; }
+        .deadline { font-weight: bold; color: #c0392b; }
+        .footer { margin-top: 1.5cm; font-size: 8pt; color: #666; text-align: center; padding-top: 0.5cm; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MUSTER</div>
+        <div class="company-info">Muster GmbH<br>Beispielstraße 42<br>10115 Berlin</div>
+    </div>
+
+    <div class="sender-line">Muster GmbH · Beispielstraße 42 · 10115 Berlin</div>
+
+    <div class="recipient">
+        Herr Thomas Säumig<br>
+        Vergessene Straße 7<br>
+        20095 Hamburg
+    </div>
+
+    <div class="date">Berlin, 15. Januar 2026</div>
+
+    <div class="reminder-level">2. MAHNUNG</div>
+
+    <div class="reference">
+        Kundennummer: K-10042<br>
+        Rechnungsnummer: 2025-089<br>
+        Rechnungsdatum: 15. Oktober 2025
+    </div>
+
+    <div class="subject">Zahlungserinnerung – Offener Betrag: 1.428,00 €</div>
+
+    <p>Sehr geehrter Herr Säumig,</p>
+
+    <p>trotz Fälligkeit am 15. November 2025 und unserer ersten Zahlungserinnerung konnten wir leider noch keinen Zahlungseingang feststellen.</p>
+
+    <table class="invoice-details">
+        <tr>
+            <th>Rechnungsnr.</th>
+            <th>Rechnungsdatum</th>
+            <th>Urspr. Betrag</th>
+            <th>Mahngebühr</th>
+            <th>Offener Betrag</th>
+        </tr>
+        <tr>
+            <td>2025-089</td>
+            <td>15.10.2025</td>
+            <td class="amount">1.400,00 €</td>
+            <td class="amount">28,00 €</td>
+            <td class="amount">1.428,00 €</td>
+        </tr>
+    </table>
+
+    <div class="total-due">Gesamtbetrag fällig: 1.428,00 €</div>
+
+    <p>Wir bitten Sie, den ausstehenden Betrag bis spätestens <span class="deadline">25. Januar 2026</span> auf unser Konto zu überweisen.</p>
+
+    <div class="payment-info">
+        <strong>Bankverbindung:</strong><br>
+        IBAN: DE89 3704 0044 0532 0130 00 · BIC: COBADEFFXXX<br>
+        Verwendungszweck: 2025-089
+    </div>
+
+    <p>Sollte sich Ihre Zahlung mit diesem Schreiben überschnitten haben, betrachten Sie diese Mahnung bitte als gegenstandslos.</p>
+
+    <p>Mit freundlichen Grüßen<br><br>Lisa Müller<br><span style="font-size: 9pt; color: #666;">Buchhaltung</span></p>
+
+    <div class="footer">Muster GmbH · Geschäftsführer: Max Mustermann · Amtsgericht Berlin HRB 12345 · USt-IdNr.: DE123456789</div>
+</body>
+</html>

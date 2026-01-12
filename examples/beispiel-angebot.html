@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page { size: A4; margin: 2cm; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10pt; line-height: 1.5; color: #1a1a1a; }
+        .header { display: flex; justify-content: space-between; margin-bottom: 1cm; padding-bottom: 0.5cm; border-bottom: 3px solid #2c3e50; }
+        .logo { font-size: 24pt; font-weight: bold; }
+        .company-info { text-align: right; font-size: 9pt; color: #666; }
+        .addresses { display: flex; justify-content: space-between; margin-bottom: 1cm; }
+        .quote-title { font-size: 18pt; font-weight: bold; color: #2c3e50; margin-bottom: 0.3cm; }
+        .quote-meta { font-size: 10pt; margin-bottom: 0.2cm; }
+        p { margin: 0 0 0.4cm 0; }
+        table.items { width: 100%; border-collapse: collapse; margin: 0.5cm 0; }
+        table.items th { background-color: #2c3e50; color: white; padding: 10px 8px; text-align: left; }
+        table.items td { border-bottom: 1px solid #ddd; padding: 10px 8px; }
+        table.items tr:nth-child(even) { background-color: #f9f9f9; }
+        .number { text-align: right; }
+        .item-desc { font-weight: 500; }
+        .item-details { font-size: 9pt; color: #666; margin-top: 3px; }
+        .totals { width: 280px; margin-left: auto; margin-top: 0.3cm; }
+        .totals td { padding: 5px 8px; }
+        .totals .label { text-align: right; }
+        .totals .value { text-align: right; width: 90px; }
+        .totals .grand-total { font-weight: bold; font-size: 12pt; background-color: #2c3e50; color: white; }
+        .validity { margin-top: 0.8cm; padding: 12px; background-color: #f5f5f5; border-radius: 4px; }
+        .terms { margin-top: 0.8cm; font-size: 9pt; color: #666; }
+        .terms h4 { margin: 0 0 0.3cm 0; color: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MUSTER</div>
+        <div class="company-info">
+            Muster GmbH<br>
+            Beispielstraße 42<br>
+            10115 Berlin<br>
+            030 123456 · info@muster.de
+        </div>
+    </div>
+
+    <div class="addresses">
+        <div class="recipient">
+            Frau Dr. Anna Schmidt<br>
+            TechStart AG<br>
+            Innovationsweg 5<br>
+            60311 Frankfurt
+        </div>
+        <div class="quote-info">
+            <div class="quote-title">ANGEBOT</div>
+            <div class="quote-meta"><strong>Nr.:</strong> ANG-2026-0042</div>
+            <div class="quote-meta"><strong>Datum:</strong> 15. Januar 2026</div>
+            <div class="quote-meta"><strong>Gültig bis:</strong> 15. Februar 2026</div>
+        </div>
+    </div>
+
+    <p>Sehr geehrte Frau Dr. Schmidt,</p>
+    <p>vielen Dank für Ihre Anfrage. Gerne unterbreiten wir Ihnen folgendes Angebot:</p>
+    <p><strong>Projekt:</strong> Website-Relaunch mit CMS-Integration</p>
+
+    <table class="items">
+        <thead>
+            <tr>
+                <th style="width: 40px;">Pos.</th>
+                <th>Leistung</th>
+                <th style="width: 60px;" class="number">Menge</th>
+                <th style="width: 70px;" class="number">Einheit</th>
+                <th style="width: 90px;" class="number">Preis</th>
+                <th style="width: 90px;" class="number">Gesamt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <div class="item-desc">Konzeption & Design</div>
+                    <div class="item-details">Wireframes, Mockups, Corporate Design Anpassung</div>
+                </td>
+                <td class="number">1</td>
+                <td class="number">Pauschal</td>
+                <td class="number">3.500 €</td>
+                <td class="number">3.500 €</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <div class="item-desc">Frontend-Entwicklung</div>
+                    <div class="item-details">Responsive HTML/CSS, JavaScript, Animationen</div>
+                </td>
+                <td class="number">40</td>
+                <td class="number">Stunden</td>
+                <td class="number">95 €</td>
+                <td class="number">3.800 €</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <div class="item-desc">CMS-Integration</div>
+                    <div class="item-details">WordPress Setup, Custom Theme, Schulung</div>
+                </td>
+                <td class="number">24</td>
+                <td class="number">Stunden</td>
+                <td class="number">95 €</td>
+                <td class="number">2.280 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="totals">
+        <tr><td class="label">Netto:</td><td class="value">9.580 €</td></tr>
+        <tr><td class="label">USt. (19%):</td><td class="value">1.820,20 €</td></tr>
+        <tr class="grand-total"><td class="label">Gesamtbetrag:</td><td class="value">11.400,20 €</td></tr>
+    </table>
+
+    <div class="validity">
+        <strong>Gültigkeit:</strong> Dieses Angebot ist gültig bis zum 15. Februar 2026.<br>
+        <strong>Lieferzeit:</strong> ca. 6–8 Wochen nach Auftragserteilung
+    </div>
+
+    <div class="terms">
+        <h4>Konditionen</h4>
+        <p>50% bei Auftragserteilung, 50% nach Abnahme. Alle Preise verstehen sich zzgl. der gesetzlichen MwSt.</p>
+    </div>
+
+    <p>Bei Fragen stehen wir Ihnen jederzeit gerne zur Verfügung.</p>
+    <p>Mit freundlichen Grüßen<br><br>Max Mustermann<br><span style="font-size: 9pt; color: #666;">Geschäftsführer</span></p>
+</body>
+</html>

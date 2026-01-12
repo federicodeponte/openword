@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+            --font-size: 10pt;
+            --color-text: #1a1a1a;
+            --color-muted: #666;
+        }
+
+        @page { size: A4; margin: 2cm; }
+        body { font-family: var(--font-family); font-size: var(--font-size); line-height: 1.5; color: var(--color-text); }
+        .header { display: flex; justify-content: space-between; margin-bottom: 1.5cm; }
+        .logo { font-size: 24pt; font-weight: bold; }
+        .company-info { text-align: right; font-size: 9pt; color: var(--color-muted); }
+        .addresses { display: flex; justify-content: space-between; margin-bottom: 1cm; }
+        .invoice-title { font-size: 18pt; font-weight: bold; margin-bottom: 0.5cm; }
+        .invoice-meta { font-size: 10pt; margin-bottom: 0.3cm; }
+        .invoice-meta strong { display: inline-block; width: 120px; }
+        table.items { width: 100%; border-collapse: collapse; margin: 1cm 0; }
+        table.items th { background-color: #f5f5f5; border-bottom: 2px solid #333; padding: 10px 8px; text-align: left; }
+        table.items td { border-bottom: 1px solid #ddd; padding: 10px 8px; }
+        .number { text-align: right; }
+        .totals { width: 300px; margin-left: auto; margin-top: 0.5cm; }
+        .totals td { padding: 5px 8px; }
+        .totals .label { text-align: right; }
+        .totals .value { text-align: right; width: 100px; }
+        .totals .grand-total { font-weight: bold; font-size: 12pt; border-top: 2px solid #333; }
+        .payment-info { margin-top: 1cm; padding: 15px; background-color: #f9f9f9; }
+        .payment-info h3 { margin: 0 0 10px 0; font-size: 11pt; }
+        .footer { position: fixed; bottom: 0; left: 0; right: 0; font-size: 8pt; color: var(--color-muted); text-align: center; padding: 10px 2cm; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MUSTER</div>
+        <div class="company-info">
+            Muster GmbH<br>
+            Beispielstraße 42<br>
+            10115 Berlin<br>
+            Tel: 030 123456<br>
+            info@muster.de
+        </div>
+    </div>
+
+    <div class="addresses">
+        <div class="recipient">
+            Max Kunde<br>
+            Kundenstraße 1<br>
+            80331 München
+        </div>
+        <div class="invoice-info">
+            <div class="invoice-title">RECHNUNG</div>
+            <div class="invoice-meta"><strong>Rechnungsnr.:</strong> 2026-001</div>
+            <div class="invoice-meta"><strong>Datum:</strong> 15. Januar 2026</div>
+            <div class="invoice-meta"><strong>Kundennr.:</strong> K-10042</div>
+            <div class="invoice-meta"><strong>Fällig bis:</strong> 15. Februar 2026</div>
+        </div>
+    </div>
+
+    <table class="items">
+        <thead>
+            <tr>
+                <th style="width: 40px;">Pos.</th>
+                <th>Beschreibung</th>
+                <th style="width: 60px;" class="number">Menge</th>
+                <th style="width: 90px;" class="number">Einzelpreis</th>
+                <th style="width: 90px;" class="number">Gesamt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Beratungsleistung Projektplanung</td>
+                <td class="number">8 Std.</td>
+                <td class="number">120,00 €</td>
+                <td class="number">960,00 €</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Softwareentwicklung Backend-Modul</td>
+                <td class="number">24 Std.</td>
+                <td class="number">95,00 €</td>
+                <td class="number">2.280,00 €</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Dokumentation und Schulung</td>
+                <td class="number">4 Std.</td>
+                <td class="number">85,00 €</td>
+                <td class="number">340,00 €</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="totals">
+        <tr>
+            <td class="label">Zwischensumme:</td>
+            <td class="value">3.580,00 €</td>
+        </tr>
+        <tr>
+            <td class="label">USt. (19%):</td>
+            <td class="value">680,20 €</td>
+        </tr>
+        <tr class="grand-total">
+            <td class="label">Gesamtbetrag:</td>
+            <td class="value">4.260,20 €</td>
+        </tr>
+    </table>
+
+    <div class="payment-info">
+        <h3>Zahlungsinformationen</h3>
+        Bitte überweisen Sie den Betrag bis zum 15. Februar 2026 auf folgendes Konto:<br>
+        <strong>IBAN:</strong> DE89 3704 0044 0532 0130 00<br>
+        <strong>BIC:</strong> COBADEFFXXX<br>
+        <strong>Bank:</strong> Commerzbank Berlin<br>
+        <strong>Verwendungszweck:</strong> 2026-001
+    </div>
+
+    <div class="footer">
+        Muster GmbH · Beispielstraße 42 · 10115 Berlin<br>
+        Geschäftsführer: Max Mustermann · Amtsgericht Berlin · HRB 12345 · USt-IdNr.: DE123456789
+    </div>
+</body>
+</html>
